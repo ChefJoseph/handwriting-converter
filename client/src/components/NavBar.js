@@ -34,11 +34,12 @@ const Wrapper = styled.header`
   justify-content: left;
   align-items: center;
   padding: 8px;
+  
 `;
 
 const Logo = styled.h1`
-  font-family: "Permanent Marker";
-  font-size: 3rem;
+  font-family: "Permanent Marker", sans-serif;
+  font-size: 2.5rem;
   color: #22C3B3;
   margin: 0;
   line-height: 1;

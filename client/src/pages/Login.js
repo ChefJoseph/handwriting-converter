@@ -38,10 +38,10 @@ function Login({ onLogin }) {
 }
 
 const Logo = styled.h1`
-  font-family: "Permanent Marker";
-  font-size: 3rem;
+  font-family: "Permanent Marker", sans-serif;
+  font-size: 2.5rem;
   color: #30C3B3;
-  margin: 8px 0 16px;
+  margin: 8px 0 40px;
 `;
 
 const Wrapper = styled.section`
