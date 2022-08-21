@@ -9,7 +9,7 @@ function Login({ onLogin }) {
 
   return (
     <Wrapper>
-      <Logo>Handwriting Converter</Logo>
+      <Logo>handwriting converter</Logo>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
@@ -38,9 +38,9 @@ function Login({ onLogin }) {
 }
 
 const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
+  font-family: "Permanent Marker";
   font-size: 3rem;
-  color: deeppink;
+  color: #30C3B3;
   margin: 8px 0 16px;
 `;
 
