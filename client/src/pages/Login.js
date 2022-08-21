@@ -51,6 +51,7 @@ const Wrapper = styled.section`
 `;
 
 const Divider = styled.hr`
+color: #363636;
   border: none;
   border-bottom: 1px solid #ccc;
   margin: 16px 0;

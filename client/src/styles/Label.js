@@ -4,7 +4,7 @@ const Label = styled.label`
   color: #363636;
   display: block;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 8px;
 `;
 
