@@ -1,25 +1,46 @@
 class DocumentsController < ApplicationController
-    before_action :authorize
-    skip_before_action :authorize, only: [:index]
-  
-    def show
-      document = Document.find(params[:id])
-      render json: document
+  before_action :set_document, only: [:show, :update, :destroy]
+
+  # GET /documents
+  def index
+    @documents = Document.all
+
+    render json: @documents
+  end
+
+  # GET /documents/1
+  def show
+    render json: @document
+  end
+
+  # POST /documents
+  def create
+    @document = Document.create!(document_params)
+    render json: @document, status: :created, location: @document
+  end
+
+  # PATCH/PUT /documents/1
+  def update
+    if @document.update(document_params)
+      render json: @document
+    else
+      render json: @document.errors, status: :unprocessable_entity
     end
-  
-    def index
-      documents = Document.all
-      render json: documents
+  end
+
+  # DELETE /documents/1
+  def destroy
+    @document.destroy
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_document
+      @document = Document.find(params[:id])
     end
-  
-    def create
-      document = Document.create(author_id: session[:user_id])
-      render json: document, status: :created
-    end
-  
-    private
-  
-    def authorize
-      return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+
+    # Only allow a list of trusted parameters through.
+    def document_params
+      params.permit(:title, :content, :user_id, :tag_id)
     end
 end
