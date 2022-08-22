@@ -10,6 +10,12 @@ class DocumentsController < ApplicationController
         document = set_document
       render json: document
     end
+
+    def latest
+      @document = Document.last
+      render json: DocumentSerializer.new(@document).serializable_hash[:data][:attributes]
+    end 
+
     # POST /documents
     def create
       @document = Document.create!(document_params)
@@ -38,7 +44,7 @@ class DocumentsController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def document_params
-        params.permit(:title, :content, :user_id, :tag_id)
+        params.permit(:title, :content, :user_id, :tag_id, :image)
       end
   end
   

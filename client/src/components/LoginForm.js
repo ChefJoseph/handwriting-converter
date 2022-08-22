@@ -24,7 +24,7 @@ function LoginForm({ onLogin }) {
         r.json().then((err) => setErrors(err.errors));
       }
     })
-    .catch(console.errors)
+    .catch((error)=> console.error(error))
   }
 
   return (
