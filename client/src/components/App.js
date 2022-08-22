@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 // import { Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
+import DocumentLibrary from "./DocumentLibrary"
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
     <>
       <NavBar user={user} setUser={setUser} />
       <main>
-       #Put routes here (after clicking log in upon success route to document_libray )
+        <DocumentLibrary/>
       </main>
     </>
   );
