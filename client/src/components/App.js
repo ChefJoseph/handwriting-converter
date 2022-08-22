@@ -22,7 +22,7 @@ function App() {
     <>
       <NavBar user={user} setUser={setUser} />
       <main>
-       #Put routes here (after clicking log in upon success route to document_libray)
+       #Put routes here (after clicking log in upon success route to document_libray )
       </main>
     </>
   );
