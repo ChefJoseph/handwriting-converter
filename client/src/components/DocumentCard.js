@@ -1,11 +1,18 @@
 import React from "react";
 
-function DocumentCard({content, title}){
+//This is a thumbnail 
+function DocumentCard({documents, setDocument, setFocus, content,id, title}){
+    let format_content = content.length < 50 ? content : content.slice(0,50)
+
+    function handleClick(){
+        setFocus(true)
+        setDocument(documents[id-1])
+    }
 
     return(
-        <div className="card">
+        <div className="card" onClick = {handleClick}>
             <h1>{title}</h1>
-            <p>{content}</p>
+            <p>{format_content}</p>
         </div>
     )
 }

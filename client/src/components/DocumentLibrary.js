@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import DocumentCard from "./DocumentCard";
 import SearchBar from "./SearchBar";
+import Document from "./Document";
 
 function DocumentLibrary(){
 
     const [documents, setDocuments] = useState([])
+    const [focus, setFocus] = useState(false)
+    const [document, setDocument] = useState(0)
 
     useEffect(() => {
         // getting all documents
@@ -18,7 +21,7 @@ function DocumentLibrary(){
 
     
     let displayed_documents = documents.map( (doc) => {
-        return <DocumentCard content = {doc.content} title = {doc.title} key = {doc.id}/>
+        return <DocumentCard documents = {documents} setDocument = {setDocument} setFocus = {setFocus} content = {doc.content} title = {doc.title} id = {doc.id} key = {doc.id}/>
     })
 
 
@@ -26,7 +29,7 @@ function DocumentLibrary(){
         <div>
             <SearchBar/>
             <div class="library">
-                {displayed_documents}
+                {!focus ? displayed_documents : <Document content = {document.content} title = {document.title}/>}
             </div>
         </div>
     )
