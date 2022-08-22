@@ -25,7 +25,7 @@ function DocumentLibrary(){
     return(
         <div>
             <SearchBar/>
-            <div className="library">
+            <div class="library">
                 {displayed_documents}
             </div>
         </div>

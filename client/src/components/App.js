@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import DocumentLibrary from "./DocumentLibrary"
+import "../App.css"
 
 
 function App() {
