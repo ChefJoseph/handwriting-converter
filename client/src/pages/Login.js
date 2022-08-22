@@ -9,7 +9,7 @@ function Login({ onLogin }) {
 
   return (
     <Wrapper>
-      <Logo>handwriting converter</Logo>
+      <Logo>handwriting➲text</Logo>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
@@ -36,12 +36,20 @@ function Login({ onLogin }) {
     </Wrapper>
   );
 }
-
+// const Wrapper = styled.header`
+//   display: flex;
+//   justify-content: left;
+//   align-items: center;
+//   padding: 8px;
+  
+// `;
 const Logo = styled.h1`
-  font-family: "Permanent Marker", sans-serif;
-  font-size: 2.5rem;
-  color: #30C3B3;
+  font-family: "Lato", sans-serif;
+  font-size: 1.8rem;
+//   color: #30C3B3;
+  color: #363636;
   margin: 8px 0 40px;
+  
 `;
 
 const Wrapper = styled.section`
@@ -56,5 +64,6 @@ color: #363636;
   border-bottom: 1px solid #ccc;
   margin: 16px 0;
 `;
+
 
 export default Login;
