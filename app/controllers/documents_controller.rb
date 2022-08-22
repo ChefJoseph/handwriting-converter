@@ -1,13 +1,14 @@
 class DocumentsController < ApplicationController
     before_action :set_document, only: [:show, :update, :destroy]
-    # GET /documents
+    # GET /documents/1 from specific user
     def index
-      @documents = Document.all
+      @documents = user_document
       render json: @documents
     end
-    # GET /documents/1
+    # GET /documents/1/1
     def show
-      render json: @document
+        document = set_document
+      render json: document
     end
     # POST /documents
     def create
@@ -27,9 +28,13 @@ class DocumentsController < ApplicationController
       @document.destroy
     end
     private
+      def user_document
+        @document = Document.where(:user_id => current_user.id)
+      end
       # Use callbacks to share common setup or constraints between actions.
       def set_document
-        @document = Document.find(params[:id])
+        documents = user_document
+        @document = documents.find(params[:id])
       end
       # Only allow a list of trusted parameters through.
       def document_params

@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
     Tag.create([{ name: 'Math'}, {name: 'To-do'}, {name: 'Misc.'}])
-    Document.create([{ title: 'Math notes', content: '1 + 1 = 2', user_id: 0, tag_id: 1}])
+    Document.create([{ title: 'Math notes', content: '1 + 1 = 2', user_id: 2, tag_id: 1}])
+    Document.create([{ title: 'English notes', content: 'The caterpillar was hungry', user_id: 2, tag_id: 1}])

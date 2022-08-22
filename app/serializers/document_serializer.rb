@@ -1,3 +1,3 @@
 class DocumentSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :content, :title, :user_id
 end
