@@ -15,7 +15,7 @@ function NavBar({ user, setUser }) {
   return (
     <Wrapper>
       <Logo>
-        <Link to="/">handwriting converter</Link>
+        <Link to="/">handwriting➲text</Link>
       </Logo>
       <Nav>
         <Button as={Link} to="/new">
@@ -38,9 +38,14 @@ const Wrapper = styled.header`
 `;
 
 const Logo = styled.h1`
-  font-family: "Permanent Marker", sans-serif;
-  font-size: 2.5rem;
-  color: #22C3B3;
+  // font-family: "Permanent Marker", sans-serif;
+  // font-size: 2rem;
+  // color: #22C3B3;
+  font-family: "Lato", sans-serif;
+  font-size: 1.8rem;
+//   color: #30C3B3;
+
+  color: #363636;
   margin: 0;
   line-height: 1;
   a {
