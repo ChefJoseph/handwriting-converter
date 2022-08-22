@@ -68,9 +68,9 @@ function SignUpForm({ onLogin }) {
         <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
       </FormField>
       <FormField>
-        {errors ? errors.map((err) => (
-          <Error key={err}>{err}</Error> 
-        )) : "Success"}
+          {errors ? errors.map((err) => (
+            <Error key={err}>{err}</Error> 
+          )) : "Success"}
       </FormField>
     </form>
   );
