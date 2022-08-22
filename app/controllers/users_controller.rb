@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: :create
+  skip_before_action :authorize, only: [:index, :create]
   before_action :set_user, only: [:show, :update, :destroy]
   
   # GET /users
@@ -7,15 +7,15 @@ class UsersController < ApplicationController
     render json: User.all
   end
 
-  # GET /users/1
-  def show
-    user = User.find_by(id: session[:user_id])
-    if user
-      render json: user
-    else
-      render json: { error: "Not authorized" }, status: :unauthorized
-    end
-  end
+  # # GET /users/1
+  # def show
+  #   user = User.find_by(id: session[:user_id])
+  #   if user
+  #     render json: user
+  #   else
+  #     render json: { error: "Not authorized" }, status: :unauthorized
+  #   end
+  # end
 
   def create
     @user = User.create!(user_signup_params)

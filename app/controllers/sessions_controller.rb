@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorize, only: :login
+    skip_before_action :authorize, only: [:login, :show, :logout]
 
     def login
         user = User.find_by(username: params[:username])
@@ -12,14 +12,24 @@ class SessionsController < ApplicationController
         end
     end
 
-    # def destroy
-    #     session.delete :user_id
-    #     head :no_content
-    # end  
+     # GET (current_user auto-login)
+  def show
+    if current_user
+        render json: current_user
+    else
+      render json: { error: "Not logged in" }, status: :unauthorized
+    end
+  end
+
     def logout
         user = User.find(session[:user_id])
         user.update!(is_login: false)
         session[:user_id] = nil
         render json: { message: "Logout" }, status: :accepted
     end
+
+    # def logout
+    #     session.delete :user_id
+    #       head :no_content
+    # end
 end

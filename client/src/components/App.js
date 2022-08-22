@@ -9,9 +9,11 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("/auth").then((r) => {
+    fetch("/auth")
+    .then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json()
+    .then((user) => setUser(user));
       }
     });
   }, []);
