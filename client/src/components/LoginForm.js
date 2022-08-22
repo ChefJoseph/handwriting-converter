@@ -55,10 +55,9 @@ function LoginForm({ onLogin }) {
         </Button>
       </FormField>
       <FormField>
-        
-        {/* {errors.map((err) => (
+      {errors? errors.map((err) => (
           <Error key={err}>{err}</Error>
-        ))} */}
+        )) : "Success"}
       </FormField>
     </form>
   );
