@@ -19,6 +19,7 @@ function NavBar({ user, setUser }) {
         <Link to="/">handwriting➲text</Link>
       </Logo>
       <Nav>
+        
         <Button as={Link} to="/new">
           New Doc
         </Button>

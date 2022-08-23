@@ -7,7 +7,8 @@ function DocumentLibrary(){
 
     const [documents, setDocuments] = useState([])
     const [focus, setFocus] = useState(false)
-    const [document, setDocument] = useState(0)
+    const [document, setDocument] = useState({"content": "",
+"title": ""})
 
     useEffect(() => {
         // getting all documents
@@ -28,7 +29,7 @@ function DocumentLibrary(){
     return(
         <div>
             <SearchBar/>
-            <div class="library">
+            <div className="library">
                 {!focus ? displayed_documents : <Document content = {document.content} title = {document.title}/>}
             </div>
         </div>
