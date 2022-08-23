@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DocumentCard from "./DocumentCard";
 import SearchBar from "./SearchBar";
-import Document from "./Document";
+import Tiptap from "./Tiptap.jsx";
 
 function DocumentLibrary(){
 
@@ -9,6 +9,9 @@ function DocumentLibrary(){
     const [focus, setFocus] = useState(false)
     const [document, setDocument] = useState({"content": "",
 "title": ""})
+
+console.log(documents)
+
     const [search, setSearch] = useState("")
     useEffect(() => {
         // getting all documents
@@ -28,19 +31,17 @@ function DocumentLibrary(){
     
 
     let displayed_documents = filteredDocs.map( (doc) => {
-        return <DocumentCard documents = {documents} setDocument = {setDocument} setFocus = {setFocus} content={doc.content} title={doc.title} id = {doc.id} key={doc.id} updated_at={doc.updated_at}/>
+        return <DocumentCard document = {doc} setDocument = {setDocument} setFocus = {setFocus} 
+        content={doc.content} title={doc.title} key={doc.id} updated_at={doc.updated_at}/>
     })
-    
-    
-
 
     return(
         <div>
-            <SearchBar 
+            {!focus ? <SearchBar 
 // @ts-ignore
-            search= {search} setSearch={setSearch}/>
+            search= {search} setSearch={setSearch}/> : null}
             <div className="library">
-                {!focus ? displayed_documents : <Document content = {document.content} title = {document.title}/>}
+                {!focus ? displayed_documents : <Tiptap content = {document.content} title = {document.title} />}
             </div>
         </div>
     )

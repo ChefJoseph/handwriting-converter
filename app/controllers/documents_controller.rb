@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
     before_action :set_document, only: [:show, :update, :destroy]
     # GET /documents/1 from specific user
     def index
-      @documents = user_document.order(updated_at: :desc).limit(50)
+      @documents = user_document.order(updated_at: :desc)
       render json: @documents
     end
     # GET /documents/1/1
