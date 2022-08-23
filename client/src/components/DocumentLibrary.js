@@ -13,7 +13,10 @@ function DocumentLibrary(){
         .then( (results) => {
             if (results.ok){
                 results.json()
-                .then(docs => setDocuments(docs))
+                .then(docs => {
+                    setDocuments(docs)
+                    console.log(docs)}
+                   )
             }
         })}, [])
     
@@ -24,7 +27,7 @@ function DocumentLibrary(){
         )  
     
     let displayed_documents = filteredDocs.map( (doc) => {
-        return <DocumentCard content={doc.content} title={doc.title} key={doc.id} updated_at={doc.updated_at}/>
+        return <DocumentCard image_url= {doc.image_url} content={doc.content} title={doc.title} key={doc.id} updated_at={doc.updated_at}/>
     })
 
 
@@ -35,6 +38,7 @@ function DocumentLibrary(){
             search= {search} setSearch={setSearch}/>
             <div className="library">
                 {displayed_documents}
+                
             </div>
         </div>
     )

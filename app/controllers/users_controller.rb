@@ -18,9 +18,9 @@ class UsersController < ApplicationController
   # end
 
   def create
-    @user = User.create!(user_signup_params)
-    session[:user_id] = @user[:id]
-    render json: @user, status: :created
+    user = User.create!(user_signup_params)
+    session[:user_id] = user.id
+    render json: user, status: :created
   end
 
   # PATCH/PUT /users/1
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.permit(:username, :password, :password_confirmation, :user, :image)
+      params.permit(:username, :password, :password_confirmation)
     end
     # Only for user signup
     def user_signup_params

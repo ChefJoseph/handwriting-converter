@@ -32,4 +32,10 @@ class SessionsController < ApplicationController
     #     session.delete :user_id
     #       head :no_content
     # end
+  private
+  # def image_url
+  #   if object.image.attached?
+  #     rails_blob_path(object.image)
+  #   end
+  # end
 end
