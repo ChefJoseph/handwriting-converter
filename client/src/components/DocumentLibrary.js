@@ -9,7 +9,7 @@ function DocumentLibrary(){
     const [focus, setFocus] = useState(false)
     const [document, setDocument] = useState({"content": "",
 "title": ""})
-
+    const [search, setSearch] = useState("")
     useEffect(() => {
         // getting all documents
         fetch("/documents")
@@ -20,15 +20,25 @@ function DocumentLibrary(){
             }
         })}, [])
 
+    const filteredDocs = documents.filter(docs=>       
+        docs.title.toLowerCase().includes(search.toLowerCase())||
+        docs.content.toLowerCase().includes(search.toLowerCase())||
+        docs.updated_at.toLowerCase().includes(search.toLowerCase())
+        )  
     
-    let displayed_documents = documents.map( (doc) => {
-        return <DocumentCard documents = {documents} setDocument = {setDocument} setFocus = {setFocus} content = {doc.content} title = {doc.title} id = {doc.id} key = {doc.id}/>
+
+    let displayed_documents = filteredDocs.map( (doc) => {
+        return <DocumentCard documents = {documents} setDocument = {setDocument} setFocus = {setFocus} content={doc.content} title={doc.title} id = {doc.id} key={doc.id} updated_at={doc.updated_at}/>
     })
+    
+    
 
 
     return(
         <div>
-            <SearchBar/>
+            <SearchBar 
+// @ts-ignore
+            search= {search} setSearch={setSearch}/>
             <div className="library">
                 {!focus ? displayed_documents : <Document content = {document.content} title = {document.title}/>}
             </div>

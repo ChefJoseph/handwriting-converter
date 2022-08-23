@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+.nav {
+  background-color: white;
+  height: 50px;
+}
+
 .library{
   width:80%;
   margin:auto;
@@ -62,6 +67,57 @@
   height: auto;
   margin: 0 auto;
   display: block;
+}
+
+.live-search-form {
+  position: relative;
+  top: 0em;
+  right: -1px;
+  left: -1px;
+  transition: border .1s ease;box-shadow: .5s ease;
+  max-width: 40%;
+  height: 45px;
+  border-color: gray;
+  display: block; 
+  margin-left: auto;
+  margin-right: auto; 
+  
+}
+.live-search-form-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: gray;
+  font-size: .9375rem;
+  flex-basis: auto;
+  /* flex-grow: 0;
+  flex-shrink: 1; */
+  width: 100%;
+  height: 45px;
+  padding-top: 0.875rem;
+  padding-bottom: 0.870rem;
+  vertical-align: middle ;
+  border-radius: 8px;
+  /* border-color: white; */
+  text-align: center;
+  /* background-image: url("https://img.icons8.com/sf-regular/344/search.png"); */
+  background-repeat: no-repeat;
+  background-position:left center;
+  
+}
+.live-search-form-field:focus {
+  outline: none !important;
+  border-color: gray;
+}
+
+.live-search-button {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 20px;
+  vertical-align: top;
+  color: gray;;
+  border: 0px ;
 }
 
 @keyframes App-logo-spin {
