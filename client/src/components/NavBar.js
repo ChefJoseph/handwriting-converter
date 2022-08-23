@@ -14,7 +14,7 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <Wrapper>
+    <Wrapper className="nav">
       <Logo>
         <Link to="/">handwriting➲text</Link>
       </Logo>

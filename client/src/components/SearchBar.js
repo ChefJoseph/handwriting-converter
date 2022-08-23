@@ -1,10 +1,25 @@
 import React from "react";
 
-function SearchBar(){
+function SearchBar({search, setSearch}){
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setSearch(e.target.value);
+      };
+
     return(
-        <div>
-            
-        </div>
+    <form action="/" method="get" className="live-search-form"
+    >
+        <input
+        type="text"
+        id="header-search"
+        placeholder="Search"
+        value= {search}
+        onChange = {handleChange}
+        className="live-search-form-field"
+        />
+           
+    </form>
     )
 }
 
