@@ -22,9 +22,9 @@ function DocumentLibrary(){
     
     const filteredDocs = documents.filter(docs=>       
         docs.title.toLowerCase().includes(search.toLowerCase())||
-        docs.content.toLowerCase().includes(search.toLowerCase())||
-        docs.updated_at.toLowerCase().includes(search.toLowerCase())
-        )  
+        docs.content.toLowerCase().includes(search.toLowerCase())
+        // docs.updated_at.toString().includes(search.toString())
+        ) 
     
     let displayed_documents = filteredDocs.map( (doc) => {
         return <DocumentCard image_url= {doc.image_url} content={doc.content} title={doc.title} key={doc.id} updated_at={doc.updated_at}/>

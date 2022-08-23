@@ -19,7 +19,6 @@ class DocumentsController < ApplicationController
     # POST /documents
     def create
       # byebug
-      
       @document = current_user.documents.create!(document_params)
       render json: @document, status: :created
     end
@@ -35,6 +34,8 @@ class DocumentsController < ApplicationController
     def destroy
       @document.destroy
     end
+
+    
     private
       def user_document
         @document = Document.where(:user_id => current_user.id)

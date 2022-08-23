@@ -24,15 +24,15 @@ class UsersController < ApplicationController
   end
 
   # PATCH/PUT /users/1
-  # def update
-  #  @user.update!(user_params)
-  #     render json: @user
-  # end
+  def update
+   @user.update!(user_params)
+      render json: @user
+  end
 
-  # DELETE /users/1
-  # def destroy
-  #   @user.destroy
-  # end
+  
+  def destroy
+    @user.destroy
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.permit(:username, :password, :password_confirmation)
+      params.permit(:username, :password, :password_confirmation, :id)
     end
     # Only for user signup
     def user_signup_params

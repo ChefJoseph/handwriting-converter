@@ -1,10 +1,10 @@
-import React, { useEffect, useState, createContext } from "react";
-// import { Switch, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import DocumentLibrary from "./DocumentLibrary"
 import "../App.css"
-import FileForm from "../pages/FileForm";
+import FileForm from "../pages/FileForm"; 
 // import LatestDoc from "./LatestDoc";
 
 
@@ -31,8 +31,13 @@ function App() {
       <div>
       <NavBar user={user} setUser={setUser} />
         <main>
-          <DocumentLibrary user={user}/>
-          {/* <LatestDoc/> */}
+          <Routes>
+            <Route path="/newdoc" element={<FileForm/>}/>
+    
+            <Route 
+// @ts-ignore
+            exact path="/" element={<DocumentLibrary/>}/>
+          </Routes>
         </main>
       </div>
   );

@@ -6,16 +6,18 @@ function FileForm() {
     // const {latestDoc, setLatestDoc} = useContext(AppContext)
     const [image, setImage] = useState(null)
     const [title, setTitle] = useState("")
+    const [content, setContent] = useState("")
     const [errors, setErrors] = useState([])
     
     const handleSubmit = (e) => {
-        e.preventDefault()
+        
         
         const formData = new FormData()
         // formData.append("document[title]", e.target.title.value);
         // formData.append("document[image]", e.target.image.files[0]);
         formData.append('image', image)
         formData.append('title', title)
+        formData.append('content', content)
 
         fetch('/documents', {
             method: 'POST',
@@ -37,7 +39,7 @@ function FileForm() {
     }
         const handleChangeImage = e => setImage(e.target.files[0])
         const handleChangeTitle = e => setTitle(e.target.value)
-    
+        const handleChangeContent = e => setContent(e.target.value)
     // function submitToAPI(data) {
     //     fetch("http://localhost:3000/documents", {
     //         method: "POST",
@@ -53,16 +55,19 @@ function FileForm() {
 
     return(
         <div>
-            <h1>File Form</h1>
-            <form onSubmit= {(e) => handleSubmit(e)}>
+            <h1>Add Document File</h1>
+            <form onSubmit= {(e) => handleSubmit(e)} action="http://localhost:4000/">
                 <label htmlFor='title'>Title</label>
                     <input type="text" name="title" id="title" onChange = {handleChangeTitle}/>
+                    <br  />
+                <label htmlFor='Content'>Content</label>
+                    <input type="text" name="content" id="content" onChange = {handleChangeContent}/>
                     <br  />
                 <label htmlFor="image">Image</label>
                     <input type="file" name="image" id="image"  onChange={handleChangeImage}/>
                     <br />
 
-                <button type="submit"> Create Doc</button>
+                <button type="submit"> Upload Doc</button>
             </form>
         </div>
     )
