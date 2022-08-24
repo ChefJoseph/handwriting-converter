@@ -27,6 +27,7 @@ function App() {
 
   if (!user) return <Login onLogin={setUser} />;
 
+
   return (
       <div>
       <NavBar user={user} setUser={setUser} />
@@ -37,6 +38,7 @@ function App() {
             <Route 
 // @ts-ignore
             exact path="/" element={<DocumentLibrary/>}/>
+            <Route path="*" element={<div>Page Not Found</div>} />
           </Routes>
         </main>
       </div>

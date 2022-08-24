@@ -9,6 +9,7 @@ function SearchBar({search, setSearch}){
 
     return(
     <form action="/" method="get" className="live-search-form"
+    autoComplete="off"
     >
         <input
         type="text"

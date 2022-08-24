@@ -22,7 +22,9 @@ function NavBar({ user, setUser }) {
         <Link to="/">handwriting➲text</Link>
       </Logo>
       <Nav>
-        {/* FILEFORM ROUTE HERE */}
+        <Button variant="welcome" as={Link} to=""> 
+        {user.username}
+        </Button>
         <Button as={Link} to="/newdoc"> 
           New Doc
         </Button>
