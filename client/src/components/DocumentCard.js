@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 
 //This is a thumbnail 
-function DocumentCard({document, image_url, setDocument, setFocus, content, title, updated_at}){
+function DocumentCard({document, id, image_url, setDocument, setFocus, content, title, updated_at, handleRemove}){
 
     const [showMenu, setShowMenu] = useState(false)
 
@@ -18,6 +18,14 @@ function DocumentCard({document, image_url, setDocument, setFocus, content, titl
         setShowMenu(!showMenu) 
     } 
 
+    function handleDelete (id) {
+        fetch(`http://localhost:4000/documents/${id}`, {
+          method: "DELETE"  
+        })
+        .then(res => res.json)
+        .then(console.log("deleted"))
+      }
+
 
 
     return(
@@ -27,7 +35,13 @@ function DocumentCard({document, image_url, setDocument, setFocus, content, titl
             <p>{updated_at}</p>
             <img hidden src={image_url} alt={'doc'} />
             <button className= "card-tridecimal"
-            onClick = {handleMenu}>&#8285;
+            onClick={(e) => {
+                e.stopPropagation()
+                e.preventDefault()
+                handleRemove(document)
+                handleDelete(id)}}
+            >
+                &#8285;
             </button>
             {/* {setShowMenu? ( */}
                 {/* // <ul>

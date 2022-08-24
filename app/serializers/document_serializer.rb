@@ -1,6 +1,6 @@
 class DocumentSerializer< ActiveModel::Serializer
 
-  attributes :id, :content, :title, :user_id, :image_url
+  attributes :id, :content, :title, :user_id, :image_url, :tag_id
 
   def image_url
     if object.image.attached?
