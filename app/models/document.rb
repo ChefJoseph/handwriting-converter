@@ -1,5 +1,7 @@
 class Document < ApplicationRecord
-    has_one_attached :image 
+    has_one_attached :image do |attachable|
+            attachable.variant :thumb, resize_to_limit: [100, 100]
+        end
     belongs_to :user
     # do |attachable|
     #     attachable.variant :thumb, resize_to_limit: [100, 100] 
@@ -10,4 +12,5 @@ class Document < ApplicationRecord
     
     # validates :image_url, presence: true
     validates :title, presence: true
+    validates :content, presence: true
 end

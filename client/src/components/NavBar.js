@@ -22,8 +22,8 @@ function NavBar({ user, setUser }) {
         <Link to="/">handwriting➲text</Link>
       </Logo>
       <Nav>
-        
-        <Button as={Link} to="/new">
+        {/* FILEFORM ROUTE HERE */}
+        <Button as={Link} to="/newdoc"> 
           New Doc
         </Button>
         <Button variant="outline" onClick={handleLogoutClick}>

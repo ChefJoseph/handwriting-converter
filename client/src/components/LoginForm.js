@@ -4,7 +4,7 @@ import { Button, Error, Input, FormField, Label } from "../styles";
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
@@ -19,9 +19,15 @@ function LoginForm({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json()
+        .then((user) => {
+          onLogin(user)
+          setErrors('')
+      })
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        // r.json().then((err) => setErrors(err));
+        r.json()
+        .then(({error}) => setErrors(error))
       }
     })
     .catch((error)=> console.error(error))
@@ -55,9 +61,9 @@ function LoginForm({ onLogin }) {
         </Button>
       </FormField>
       <FormField>
-        {errors ? errors.map((err) => (
-            <Error key={err}>{err}</Error> 
-          )) : "Success"}
+        
+      {errors ? <Error>{errors}</Error>:null} 
+        
       </FormField>
     </form>
   );

@@ -28,9 +28,9 @@ console.log(documents)
 
     const filteredDocs = documents.filter(docs=>       
         docs.title.toLowerCase().includes(search.toLowerCase())||
-        docs.content.toLowerCase().includes(search.toLowerCase())||
-        docs.updated_at.toLowerCase().includes(search.toLowerCase())
-        )  
+        docs.content.toLowerCase().includes(search.toLowerCase())
+        // docs.updated_at.toString().includes(search.toString())
+        ) 
     
 
     let displayed_documents = filteredDocs.map( (doc) => {
