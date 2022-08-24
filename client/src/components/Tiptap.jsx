@@ -61,7 +61,7 @@ const MenuBar = ({ editor }) => {
   )
 }
 
-export default ({content, title}) => {
+export default ({document, content, title}) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -75,6 +75,26 @@ export default ({content, title}) => {
     content: `<h1>${title}</h1>
       <p>${content}</p>
     `,
+    onUpdate: ({ editor }) => {
+      const html_parsed = editor.getHTML()
+      let title = html_parsed.match(/<h1>(.*?)<\/h1>/)[0]
+      let content = html_parsed.replace(title,"")
+
+      console.log(title)
+      console.log(content)
+      
+      fetch(`documents/${document.id}`,{
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: {
+          "title": title,
+          "content": content
+        }
+      })
+      // send the content to an API here
+    },
   })
 
   return (

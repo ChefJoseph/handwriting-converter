@@ -3,14 +3,13 @@ import DocumentCard from "./DocumentCard";
 import SearchBar from "./SearchBar";
 import Tiptap from "./Tiptap.jsx";
 
-function DocumentLibrary(){
+function DocumentLibrary({focus, setFocus}){
 
     const [documents, setDocuments] = useState([])
-    const [focus, setFocus] = useState(false)
+
     const [document, setDocument] = useState({"content": "",
 "title": ""})
 
-console.log(documents)
 
     const [search, setSearch] = useState("")
     useEffect(() => {
@@ -21,7 +20,7 @@ console.log(documents)
                 results.json()
                 .then(docs => {
                     setDocuments(docs)
-                    console.log(docs)}
+                    }
                    )
             }
         })}, [])
@@ -44,9 +43,9 @@ console.log(documents)
 // @ts-ignore
             search= {search} setSearch={setSearch}/> : null}
             <div className="library">
-                {!focus ? displayed_documents : <Tiptap content = {document.content} title = {document.title} />}
-            
+                {!focus ? displayed_documents : <Tiptap document = {document} content = {document.content} title = {document.title} />}
             </div>
+             
         </div>
     )
 }

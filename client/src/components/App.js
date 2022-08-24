@@ -12,6 +12,7 @@ import FileForm from "../pages/FileForm";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [focus, setFocus] = useState(false)
   // const [avatar, setAvatar] = useState(null)
 
   useEffect(() => {
@@ -29,14 +30,14 @@ function App() {
 
   return (
       <div>
-      <NavBar user={user} setUser={setUser} />
+      <NavBar user={user} setUser={setUser} setFocus = {setFocus}/>
         <main>
           <Routes>
             <Route path="/newdoc" element={<FileForm/>}/>
     
             <Route 
 // @ts-ignore
-            exact path="/" element={<DocumentLibrary/>}/>
+            exact path="/" element={<DocumentLibrary focus={focus} setFocus = {setFocus}/>}/>
           </Routes>
         </main>
       </div>

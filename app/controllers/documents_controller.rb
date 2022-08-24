@@ -22,14 +22,14 @@ class DocumentsController < ApplicationController
       @document = current_user.documents.create!(document_params)
       render json: @document, status: :created
     end
+    
     # PATCH/PUT /documents/1
     def update
-      if @document.update(document_params)
+        @document.update(document_params)
         render json: @document
-      else
-        render json: @document.errors, status: :unprocessable_entity
-      end
     end
+
+    
     # DELETE /documents/1
     def destroy
       @document.destroy
@@ -47,7 +47,7 @@ class DocumentsController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def document_params
-        params.permit(:title, :content, :user_id, :tag_id, :image)
+        params.permit(:title, :content)
       end
   end
   
