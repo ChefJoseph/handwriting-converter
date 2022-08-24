@@ -21,17 +21,20 @@ class SessionsController < ApplicationController
     end
   end
 
+    # def logout
+    #     user = User.find(session[:user_id])
+    #     user.update!(is_login: false)
+    #     session[:user_id] = nil
+    #     render json: { message: "Logout" }, status: :accepted
+    # end
+
     def logout
         user = User.find(session[:user_id])
         user.update!(is_login: false)
-        session[:user_id] = nil
-        render json: { message: "Logout" }, status: :accepted
+        session.delete :user_id
+        head :no_content
     end
 
-    # def logout
-    #     session.delete :user_id
-    #       head :no_content
-    # end
   private
   # def image_url
   #   if object.image.attached?
