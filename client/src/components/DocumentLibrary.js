@@ -35,7 +35,10 @@ function DocumentLibrary(){
         <div>
             <SearchBar 
 // @ts-ignore
-            search= {search} setSearch={setSearch}/>
+            search= {search} setSearch={setSearch}/> <br/><br/>
+            <div className="recentdoc">
+                Recent documents
+            </div>
             <div className="library">
                 {displayed_documents}
                 

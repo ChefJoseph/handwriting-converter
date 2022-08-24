@@ -56,7 +56,7 @@ const WelcomeTag = styled(ButtonBase)`
   background-color: white;
   color: #363636;
   // border: 2px solid var(--main);
-
+  pointer-events: none;
   // &:hover {
   //   background: hsl(235deg 85% 97%);
   // }
