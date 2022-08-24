@@ -18,8 +18,10 @@ class DocumentsController < ApplicationController
 
     # POST /documents
     def create
-      @document = Document.create!(document_params)
-      render json: @document, status: :created, location: @document
+      # byebug
+      
+      @document = current_user.documents.create!(document_params)
+      render json: @document, status: :created
     end
     # PATCH/PUT /documents/1
     def update

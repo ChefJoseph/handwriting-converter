@@ -19,7 +19,10 @@ console.log(documents)
         .then( (results) => {
             if (results.ok){
                 results.json()
-                .then(docs => setDocuments(docs))
+                .then(docs => {
+                    setDocuments(docs)
+                    console.log(docs)}
+                   )
             }
         })}, [])
 
@@ -31,7 +34,7 @@ console.log(documents)
     
 
     let displayed_documents = filteredDocs.map( (doc) => {
-        return <DocumentCard document = {doc} setDocument = {setDocument} setFocus = {setFocus} 
+        return <DocumentCard document = {doc} setDocument = {setDocument} setFocus = {setFocus} image_url = {doc.image_url}
         content={doc.content} title={doc.title} key={doc.id} updated_at={doc.updated_at}/>
     })
 
@@ -42,6 +45,7 @@ console.log(documents)
             search= {search} setSearch={setSearch}/> : null}
             <div className="library">
                 {!focus ? displayed_documents : <Tiptap content = {document.content} title = {document.title} />}
+            
             </div>
         </div>
     )

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
+  include ActiveStorage::Blob::Analyzable
 
   before_action :authorize
 
@@ -14,9 +15,7 @@ class ApplicationController < ActionController::API
   end
 
   def authorize
-    @current_user = User.find_by(id: session[:user_id])
-
-    unless @current_user
+    unless current_user
     render json: { errors: ["Not authorized"] }, status: :unauthorized 
     end
     # return render json: {error: "Not Authorized"}, status: :unauthorized unless session.include? :user_id

@@ -12,6 +12,9 @@ function NavBar({ user, setUser }) {
       }
     });
   }
+  // function handleNewDocClick() {
+  //   fetch()
+  // }
 
   return (
     <Wrapper className="nav">

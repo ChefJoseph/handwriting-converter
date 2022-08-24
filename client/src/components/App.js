@@ -4,15 +4,15 @@ import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import DocumentLibrary from "./DocumentLibrary"
 import "../App.css"
-import FileForm from "./FileForm";
-import LatestDoc from "./LatestDoc";
+import FileForm from "../pages/FileForm";
+// import LatestDoc from "./LatestDoc";
 
 
-export const AppContext = createContext(null)
+// export const AppContext = createContext(null)
 
 function App() {
   const [user, setUser] = useState(null);
-  const [latestDoc, setLatestDoc] = useState(AppContext)
+  // const [avatar, setAvatar] = useState(null)
 
   useEffect(() => {
     // auto-login
@@ -28,16 +28,13 @@ function App() {
   if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <AppContext.Provider value={{ latestDoc, setLatestDoc}}>
       <div>
       <NavBar user={user} setUser={setUser} />
         <main>
-          <DocumentLibrary/>
-          <FileForm/>
-          <LatestDoc/>
+          <DocumentLibrary user={user}/>
+          {/* <LatestDoc/> */}
         </main>
       </div>
-    </AppContext.Provider>
   );
 }
 
