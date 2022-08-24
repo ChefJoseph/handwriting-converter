@@ -42,6 +42,9 @@ function DocumentLibrary({focus, setFocus}){
             {!focus ? <SearchBar 
 // @ts-ignore
             search= {search} setSearch={setSearch}/> : null}
+            <div className="recentdoc">
+                Recent documents
+            </div>
             <div className="library">
                 {!focus ? displayed_documents : <Tiptap document = {document} content = {document.content} title = {document.title} />}
             </div>

@@ -59,8 +59,8 @@ function FileForm() {
     return(
       <Wrapper>
         <div className = "fileform">
-            <h1>Add Document File</h1>
-        <form onSubmit= {async (e) => {
+            <h1>Upload Document</h1>
+        <form onSubmit= {(e) => {
               handleSubmit(e) 
               navigate('/', {replace: true})}} >
         <FormField>

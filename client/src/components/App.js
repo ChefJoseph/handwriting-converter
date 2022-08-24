@@ -28,6 +28,7 @@ function App() {
 
   if (!user) return <Login onLogin={setUser} />;
 
+
   return (
       <div>
       <NavBar user={user} setUser={setUser} setFocus = {setFocus}/>
@@ -38,6 +39,7 @@ function App() {
             <Route 
 // @ts-ignore
             exact path="/" element={<DocumentLibrary focus={focus} setFocus = {setFocus}/>}/>
+            <Route path="*" element={<div>Page Not Found</div>} />
           </Routes>
         </main>
       </div>

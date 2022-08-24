@@ -14,7 +14,8 @@ function DocumentCard({document, image_url, setDocument, setFocus, content, titl
             <h1>{title}</h1>
             <p>{format_content}</p> 
             <p>{updated_at}</p>
-            <img hidden src={image_url} alt={'an image!'} />
+            <img hidden src={image_url} alt={'loaded doc'} />
+            <span className= "card-tridecimal">&#8285;</span>
         </div>
     )
 }
