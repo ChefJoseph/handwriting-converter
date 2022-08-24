@@ -45,6 +45,8 @@ function DocumentLibrary({focus, setFocus}){
             <div className="recentdoc">
                 Recent documents
             </div>
+            <br/>
+            <br/>
             <div className="library">
                 {!focus ? displayed_documents : <Tiptap document = {document} content = {document.content} title = {document.title} />}
             </div>
