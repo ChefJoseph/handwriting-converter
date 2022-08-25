@@ -27,12 +27,17 @@
     Document.create([{ title: 'Gossip Notes', content: 'OMG OMG OMG', user_id: 1}])
     Document.create([{ title: 'Foreign Notes', content: 'HOLA COMO ESTAS', user_id: 2}])
 
-    Document.all.each do |document|
-          
-          tag = Tag.find(Tag.pluck(:id).sample)
-      
-          Tagging.create!(document_id: document.id, tag_id: tag.id)
+    Tagging.create!(document_id: 1, tag_id: 1)
+    Tagging.create!(document_id: 1, tag_id: 2)
+    Tagging.create!(document_id: 1, tag_id: 3)
+    Tagging.create!(document_id: 2, tag_id: 4)
+    Tagging.create!(document_id: 2, tag_id: 5)
+    Tagging.create!(document_id: 2, tag_id: 7)
+    Tagging.create!(document_id: 2, tag_id: 6)
+    Tagging.create!(document_id: 3, tag_id: 6)
+    Tagging.create!(document_id: 3, tag_id: 8)
+
         
-    end
+    
 
     puts "seeded!"
