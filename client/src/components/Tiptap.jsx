@@ -9,8 +9,6 @@ import renderItems from './suggestion/renderItems'
 
 
 export default ({document, content, title}) => {
-  console.log(title)
-  console.log(content)
   const editor = useEditor({
     extensions: [
       StarterKit,

@@ -28,7 +28,6 @@ useEffect(() => {
     return () => clearTimeout(timer)
         }, [])
 
-console.log(documents)
 
     const filteredDocs = documents.filter(docs=>       
         docs.title.toLowerCase().includes(search.toLowerCase())||
@@ -42,7 +41,7 @@ console.log(documents)
         content={doc.content} title={doc.title} key={doc.id} id = {doc.id} updated_at={doc.updated_at} handleRemove={handleRemove} />
     })
     function handleRemove(doc) {
-        // console.log(tran)
+
         setDocuments(documents.filter(d=> d.id !== doc.id))
       }
     return(
