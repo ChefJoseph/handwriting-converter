@@ -1,3 +1,8 @@
 class Tag < ApplicationRecord
-    belongs_to :document
+    has_many :taggings
+    has_many :documents, through: :taggings
+    
+   
+    end
+    validates :name, presence: true, uniqueness: true
 end

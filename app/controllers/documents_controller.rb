@@ -7,11 +7,13 @@ class DocumentsController < ApplicationController
     def index
       @documents = user_document.order(updated_at: :desc)
       render json: @documents
+     
     end
     # GET /documents/1/1
     def show
         document = set_document
       render json: document
+
     end
 
     def latest
@@ -39,7 +41,6 @@ class DocumentsController < ApplicationController
       @document.destroy
     end
 
-    
     private
       def user_document
         @document = Document.where(:user_id => current_user.id)
@@ -51,7 +52,7 @@ class DocumentsController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def document_params
-        params.permit(:title, :content, :id)
+        params.permit(:title, :content, :id, :tag_list)
       end
   end
   

@@ -24,7 +24,7 @@ useEffect(() => {
         }})}
     const timer = setTimeout(() => {
             fetchData();
-          }, 250);
+          }, 300);
     return () => clearTimeout(timer)
         }, [])
 
