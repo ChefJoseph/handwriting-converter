@@ -18,13 +18,21 @@
         {name: 'Misc'}
     ])
 
-    Document.create([{ title: 'Math notes', content: '1 + 1 = 2', user_id: 1, tag_id: 1}])
-    Document.create([{ title: 'English notes', content: 'The caterpillar was hungry', user_id: 2, tag_id: 8}])
-    Document.create([{ title: 'History notes', content: 'Christopher Columbus', user_id: 1, tag_id: 4}])
-    Document.create([{ title: 'Sexy Notes', content: '69', user_id: 2, tag_id: 9}])
-    Document.create([{ title: 'Secret Notes', content: 'Psssss', user_id: 1, tag_id: 9}])
-    Document.create([{ title: 'Political Notes', content: 'MAGA', user_id: 2, tag_id: 5}])
-    Document.create([{ title: 'Gossip Notes', content: 'OMG OMG OMG', user_id: 1, tag_id: 9}])
-    Document.create([{ title: 'Foreign Notes', content: 'HOLA COMO ESTAS', user_id: 2, tag_id: 5}])
+    Document.create([{ title: 'Math notes', content: '1 + 1 = 2', user_id: 1}])
+    Document.create([{ title: 'English notes', content: 'The caterpillar was hungry', user_id: 2}])
+    Document.create([{ title: 'History notes', content: 'Christopher Columbus', user_id: 1}])
+    Document.create([{ title: 'Sexy Notes', content: '69', user_id: 2}])
+    Document.create([{ title: 'Secret Notes', content: 'Psssss', user_id: 1}])
+    Document.create([{ title: 'Political Notes', content: 'MAGA', user_id: 2}])
+    Document.create([{ title: 'Gossip Notes', content: 'OMG OMG OMG', user_id: 1}])
+    Document.create([{ title: 'Foreign Notes', content: 'HOLA COMO ESTAS', user_id: 2}])
+
+    Document.all.each do |document|
+          
+          tag = Tag.find(Tag.pluck(:id).sample)
+      
+          Tagging.create!(document_id: document.id, tag_id: tag.id)
+        
+    end
 
     puts "seeded!"
