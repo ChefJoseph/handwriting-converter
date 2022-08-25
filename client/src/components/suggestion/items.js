@@ -1,5 +1,4 @@
 const getSuggestionItems = (query) => {
-    console.log(query.query)
     return [
       {
         title: "h1",
@@ -91,7 +90,7 @@ const getSuggestionItems = (query) => {
         command: ({editor}) => {
           editor.chain().focus().toggleCodeBlock().run();
         }
-      }
+      },
     ].filter((item) => item.title.toLowerCase().startsWith(query.query.toLowerCase()))
   };
   

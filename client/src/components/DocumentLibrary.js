@@ -52,7 +52,7 @@ console.log(documents)
             search= {search} setSearch={setSearch}/> : null}
             <br/>
             <br/>
-            <div className="library">
+            <div className= {focus ? "library2" : "library"}>
                 {!focus ? displayed_documents : <Tiptap document = {document} content = {document.content} title = {document.title} 
                 />}
             </div>

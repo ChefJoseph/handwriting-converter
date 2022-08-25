@@ -1,6 +1,12 @@
-require 'rtesseract'
-# require 'mini_magick'
+require 'onnxruntime'
+require 'mini_magick'
 
-#image_path = ApplicationController::Base.helpers.image_url('./images/handwriting.jpg')
-image = RTesseract.new('./images/textbook.jpg', lang: 'eng')
-puts image.to_s # Getting the value
+
+img = MiniMagick::Image.open("./images/test2.png")
+pixels = img.get_pixels 
+
+model = OnnxRuntime::Model.new('./testdata/snapshot-33.data-00000-of-00001')
+result = model.predict({"inputs" => [pixels]})
+
+p result["num_detections"]
+p result["detection_classes"]

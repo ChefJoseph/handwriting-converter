@@ -1,10 +1,8 @@
 
  .ProseMirror {
-    min-height: 60em;
-    min-width: 60em;
-    margin-top: 10%;
-    width:100%;
-    border: 2px solid #22C3B3;
+    margin: auto;
+    width: 90%;
+    border: none;
     border-radius: 10px;
     outline: none;
     padding: 1em;

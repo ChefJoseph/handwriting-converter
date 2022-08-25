@@ -27,6 +27,11 @@
   z-index: 950
 }
 
+.library2{
+  width:100%;
+  margin:auto;
+}
+
 .card{
   flex: 0 0 23%;
   flex-grow: 0;

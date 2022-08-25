@@ -29,6 +29,10 @@ gem 'nokogiri'
 # gem 'rack-cors'
 
 gem 'rtesseract'
+gem 'tensorflow'
+gem "onnxruntime"
+gem "mini_magick"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

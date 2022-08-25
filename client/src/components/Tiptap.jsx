@@ -9,6 +9,8 @@ import renderItems from './suggestion/renderItems'
 
 
 export default ({document, content, title}) => {
+  console.log(title)
+  console.log(content)
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -19,9 +21,8 @@ export default ({document, content, title}) => {
         }
       })
     ],
-    content: `<h1>${title}</h1>
-      <p>${content}</p>
-    `,
+    content: `${title}
+      ${content}`,
     onUpdate: ({ editor }) => {
       const html_parsed = editor.getHTML()
       let title = html_parsed.match(/<h1>(.*?)<\/h1>/) ? html_parsed.match(/<h1>(.*?)<\/h1>/)[0] : "No Title"
@@ -35,10 +36,10 @@ export default ({document, content, title}) => {
           "title": `${title}`,
           "content": `${content}`
         })
-
       })
-    },
-  })
+    }
+  },
+  )
 
   return (
     <div>
