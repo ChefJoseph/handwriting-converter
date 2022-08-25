@@ -1,5 +1,8 @@
 class DocumentsController < ApplicationController
-    before_action :set_document, only: [:show, :update, :destroy]
+    before_action :set_document, only: [:show, :destroy]
+
+    
+
     # GET /documents/1 from specific user
     def index
       @documents = user_document.order(updated_at: :desc)
@@ -25,8 +28,9 @@ class DocumentsController < ApplicationController
     
     # PATCH/PUT /documents/1
     def update
-        @document.update(document_params)
-        render json: @document
+      doc = Document.find(params[:id])
+      doc.update!(document_params)
+      render json: doc
     end
 
     
@@ -47,7 +51,7 @@ class DocumentsController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def document_params
-        params.permit(:title, :content)
+        params.permit(:title, :content, :id)
       end
   end
   

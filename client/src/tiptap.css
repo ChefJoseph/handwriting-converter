@@ -1,20 +1,20 @@
-.App {
-    font-family: sans-serif;
-    /* text-align: center; */
-  }
   
   .ProseMirror {
-    min-height: 40vh;
-    border: 2px solid peru;
+    min-height: 60em;
+    min-width: 60em;
+    margin-top: 10%;
+    width:100%;
+    border: 2px solid #22C3B3;
     border-radius: 10px;
     outline: none;
     padding: 1em;
   }
   
   .items {
+    width:150%;
     position: relative;
     border-radius: 0.25rem;
-    background: white;
+    background: #71DFD3;
     color: rgba(black, 0.8);
     overflow: hidden;
     font-size: 0.9rem;
@@ -23,16 +23,17 @@
   
   .item {
     display: block;
-    width: 100%;
-    text-align: left;
+    text-align: center;
+    width:100%;
     background: transparent;
     border: none;
-    padding: 0.2rem 0.5rem;
+    padding: 5%;
+    border-bottom: #16746b 1px solid;
   }
   
   .item.is-selected,
   .item:hover {
-    color: #a975ff;
-    background: rgba(#a975ff, 0.1);
+    color: white;
+    background: #22C3B3;
   }
   
