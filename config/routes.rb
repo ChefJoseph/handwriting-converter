@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get "/documents", to: "documents#show"
   post "/upload", to: "documents#create"
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 470945db2f5ab91800fa6edcb3270d0edc49b99d
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

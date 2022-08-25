@@ -3,6 +3,7 @@ class Document < ApplicationRecord
             attachable.variant :thumb, resize_to_limit: [100, 100]
         end
     belongs_to :user
+    has_many :tags
     # do |attachable|
     #     attachable.variant :thumb, resize_to_limit: [100, 100] 
     # end

@@ -14,7 +14,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [focus, setFocus] = useState(false)
   // const [avatar, setAvatar] = useState(null)
-
+  
   useEffect(() => {
     // auto-login
     fetch("/auth")
@@ -34,7 +34,7 @@ function App() {
       <NavBar user={user} setUser={setUser} setFocus = {setFocus}/>
         <main>
           <Routes>
-            <Route path="/newdoc" element={<FileForm/>}/>
+            <Route path="/newdoc" element={<FileForm />}/>
     
             <Route 
 // @ts-ignore

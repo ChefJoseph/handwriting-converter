@@ -30,7 +30,7 @@ function NavBar({ setFocus, user, setUser }) {
           New Doc
         </Button>
         <Button variant="outline" onClick={handleLogoutClick}>
-          Logout
+          Sign out
         </Button>
       </Nav>
     </Wrapper>

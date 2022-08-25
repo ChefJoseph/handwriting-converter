@@ -6,14 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-    Tag.create([{ name: 'Math'}, {name: 'To-do'}, {name: 'Misc.'}])
+    Tag.create([
+        {name: 'Math'}, 
+        {name: 'To-do'}, 
+        {name: 'Science'},
+        {name: 'History'},
+        {name: 'Politics'},
+        {name: 'Finance'},
+        {name: 'Coding'},
+        {name: 'English'},
+        {name: 'Misc'}
+    ])
+
     Document.create([{ title: 'Math notes', content: '1 + 1 = 2', user_id: 1, tag_id: 1}])
-    Document.create([{ title: 'English notes', content: 'The caterpillar was hungry', user_id: 2, tag_id: 1}])
-    Document.create([{ title: 'History notes', content: 'Christopher Columbus', user_id: 1, tag_id: 1}])
-    Document.create([{ title: 'Sexy Notes', content: '69', user_id: 2, tag_id: 1}])
-    Document.create([{ title: 'Secret Notes', content: 'Psssss', user_id: 1, tag_id: 1}])
-    Document.create([{ title: 'Political Notes', content: 'MAGA', user_id: 2, tag_id: 1}])
-    Document.create([{ title: 'Gossip Notes', content: 'OMG OMG OMG', user_id: 1, tag_id: 1}])
-    Document.create([{ title: 'Foreign Notes', content: 'HOLA COMO ESTAS', user_id: 2, tag_id: 1}])
+    Document.create([{ title: 'English notes', content: 'The caterpillar was hungry', user_id: 2, tag_id: 8}])
+    Document.create([{ title: 'History notes', content: 'Christopher Columbus', user_id: 1, tag_id: 4}])
+    Document.create([{ title: 'Sexy Notes', content: '69', user_id: 2, tag_id: 9}])
+    Document.create([{ title: 'Secret Notes', content: 'Psssss', user_id: 1, tag_id: 9}])
+    Document.create([{ title: 'Political Notes', content: 'MAGA', user_id: 2, tag_id: 5}])
+    Document.create([{ title: 'Gossip Notes', content: 'OMG OMG OMG', user_id: 1, tag_id: 9}])
+    Document.create([{ title: 'Foreign Notes', content: 'HOLA COMO ESTAS', user_id: 2, tag_id: 5}])
 
     puts "seeded!"
