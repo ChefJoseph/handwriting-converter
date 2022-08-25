@@ -5,7 +5,6 @@ class DocumentsController < ApplicationController
     def index
       @documents = user_document.order(updated_at: :desc)
       render json: @documents
-     
     end
     # GET /documents/1/1
     def show
@@ -50,7 +49,7 @@ class DocumentsController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def document_params
-        params.permit(:title, :content, :id, :tag_list)
+        params.permit(:title, :content, :tag_id, :user_id, :image)
       end
   end
   

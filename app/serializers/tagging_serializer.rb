@@ -1,3 +1,3 @@
 class TaggingSerializer < ActiveModel::Serializer
-  attributes :id, :tag_id, :article_id
+  attributes :id, :tag_id, :document_id
 end
