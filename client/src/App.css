@@ -33,17 +33,19 @@
 }
 
 .card{
-  flex: 0 0 23%;
+  height: 450px;
+  width: 262px;
   flex-grow: 0;
   margin: 1%;
   border: 1px solid rgb(203, 203, 201);
-  display: flexbox;
+  /* display: flexbox; */
   flex-direction: column;
   justify-content: center;
   height: 200px;
   background-color: white;
   position: relative;
   border-radius: 3px;
+  left: 140px;
 }
 .card:hover{
   border: 3px solid #22C3B3;

@@ -3,13 +3,13 @@ import DocumentCard from "../components/DocumentCard";
 import SearchBar from "../components/SearchBar";
 import { Button} from "../styles";
 // import styled from "styled-components";
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 
 function DocumentLibrary({document, setDocument, focus, setFocus}){
 
     const [documents, setDocuments] = useState([])
     const [errors, setErrors] = useState([])
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [search, setSearch] = useState("")
 
 useEffect(() => {
@@ -23,7 +23,7 @@ useEffect(() => {
         }})}
     const timer = setTimeout(() => {
             fetchData();
-          }, 1000);
+          }, 200);
     return () => clearTimeout(timer)
         }, [])
 
@@ -43,11 +43,11 @@ useEffect(() => {
         setDocuments(documents.filter(d=> d.id !== doc.id))
       }
 
-      const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         const formData = new FormData()
      
-        formData.append('title', "title")
-        formData.append('content', "content")
+        formData.append('title', "New Title")
+        formData.append('content', "Body")
 
         e.preventDefault()
       fetch('/documents', {
@@ -67,7 +67,7 @@ useEffect(() => {
         }
       })}
 
-
+console.log(handleSubmit)
     return(
         <div>
             <SearchBar 
@@ -76,18 +76,18 @@ useEffect(() => {
             <br/>
             <br/>
             <div className= {focus ? "library2" : "library"}>
-            <form onSubmit= {(e) => {
-              handleSubmit(e)
-              navigate('/', {replace: true})}} >
-                  
          
-                 <Button type="submit">Upload Doc</Button>
-            </form>
                 {displayed_documents}
             </div>
              
         </div>
     )
 }
+{/* <form onSubmit= {(e) => {
+    handleSubmit(e)
+    navigate('/editor', {replace: true})}} >
+        
 
+       <button className ="card" type="submit">Upload Doc</button>
+  </form> */}
 export default DocumentLibrary
