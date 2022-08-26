@@ -19,6 +19,6 @@ class Document < ApplicationRecord
     #     self.tags = new_or_found_tags
     # end     
 
-    validates :title, presence: true
-    validates :content, presence: true
+    # validates :title, presence: true
+    # validates :content, presence: true
 end

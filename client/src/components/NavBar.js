@@ -16,7 +16,7 @@ function NavBar({user, setUser }) {
   return (
     <Wrapper className="nav">
       <Logo>
-        <Link to="/">handwriting➲text</Link>
+        <Link to="/">&#9776; &nbsp; &nbsp; hiNote</Link>
       </Logo>
       <Nav>
         <Button variant="welcome" as={Link} to=""> 

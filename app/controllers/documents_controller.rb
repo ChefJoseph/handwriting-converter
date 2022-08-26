@@ -49,7 +49,7 @@ class DocumentsController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def document_params
-        params.permit(:title, :content, :tag_id, :user_id, :image)
+        params.permit(:title, :content, :tag_id, :user_id)
       end
   end
   
