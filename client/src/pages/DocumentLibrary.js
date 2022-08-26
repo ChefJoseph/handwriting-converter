@@ -5,7 +5,7 @@ import { Button} from "../styles";
 // import styled from "styled-components";
 // import {useNavigate} from 'react-router-dom';
 
-function DocumentLibrary({document, setDocument, focus, setFocus}){
+function DocumentLibrary({document, setDocument}){
 
     const [documents, setDocuments] = useState([])
     const [errors, setErrors] = useState([])
@@ -35,7 +35,7 @@ useEffect(() => {
     
 
     let displayed_documents = filteredDocs.map( (doc) => {
-        return <DocumentCard document = {doc} setDocument = {setDocument} setFocus = {setFocus} image_url = {doc.image_url}
+        return <DocumentCard document = {doc} setDocument = {setDocument} image_url = {doc.image_url}
         content={doc.content} title={doc.title} key={doc.id} id = {doc.id} updated_at={doc.updated_at} handleRemove={handleRemove} />
     })
     function handleRemove(doc) {
