@@ -77,13 +77,12 @@ useEffect(() => {
             <br/>
             <div className= {focus ? "library2" : "library"}>
             <form onSubmit= {(e) => {
-              handleSubmit(e) 
+              handleSubmit(e)
               navigate('/', {replace: true})}} >
                   
          
                  <Button type="submit">Upload Doc</Button>
             </form>
-
                 {displayed_documents}
             </div>
              

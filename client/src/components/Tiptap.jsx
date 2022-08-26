@@ -45,8 +45,8 @@ export default ({document, content, title}) => {
   )
 
   return (
-    <>
-      {editor && <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
+    <div>
+      {editor && <BubbleMenu editor={editor}>
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={editor.isActive('bold') ? 'is-active' : ''}
@@ -66,13 +66,25 @@ export default ({document, content, title}) => {
           Strike
         </button>
         <button
-          onClick={() =>  editor.chain().focus().toggleBlockquote().run()}
-          className = {editor.isActive('blockquote') ? 'is-active' : ''}
+          onClick={() =>  editor.chain().focus().setNode("heading", { level: 1 }).run()}
+          className = {editor.isActive('h1') ? 'is-active' : ''}
         >
-            Block Quote
+            H1
+        </button>
+        <button
+          onClick={() =>  editor.chain().focus().setNode("heading", { level: 2 }).run()}
+          className = {editor.isActive('h2') ? 'is-active' : ''}
+        >
+            H2
+        </button>
+        <button
+          onClick={() =>  editor.chain().focus().setNode("heading", { level: 3 }).run()}
+          className = {editor.isActive('h3') ? 'is-active' : ''}
+        >
+            H3
         </button>
       </BubbleMenu>}
       <EditorContent editor={editor} />
-    </>
+    </div>
   )
 }

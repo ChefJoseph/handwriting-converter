@@ -53,18 +53,18 @@ const getSuggestionItems = (query) => {
       {
         title: "Block Quote",
         command: ({ editor, range }) => {
-          editor.chain().focus().toggleBlockquote().run();
+          editor.chain().focus().deleteRange(range).toggleBlockquote().run();
         }
       },
       {
         title: "Bullet List",
-        command: ({editor}) => {(editor.chain().focus().toggleBulletList().run());
+        command: ({editor, range}) => {(editor.chain().focus().deleteRange(range).toggleBulletList().run());
         }
       },
       {
         title: "Horizontal Rule",
         command: ({ editor, range }) => {
-          editor.chain().focus().setHorizontalRule().run();
+          editor.chain().focus().deleteRange(range).setHorizontalRule().run();
         }
       },
       {
@@ -81,14 +81,14 @@ const getSuggestionItems = (query) => {
       },
       {
         title: "Ordered List",
-        command: ({editor}) => {
-          editor.chain().focus().toggleOrderedList().run();
+        command: ({editor, range}) => {
+          editor.chain().focus().deleteRange(range).toggleOrderedList().run();
         }
       },
       {
         title: "Code Block",
-        command: ({editor}) => {
-          editor.chain().focus().toggleCodeBlock().run();
+        command: ({editor, range}) => {
+          editor.chain().focus().deleteRange(range).toggleCodeBlock().run();
         }
       },
     ].filter((item) => item.title.toLowerCase().startsWith(query.query.toLowerCase()))
