@@ -39,11 +39,9 @@ function App() {
           <Routes>
             <Route path="/newdoc" element={<FileForm />}/>
     
-            <Route 
-            exact path="/" element={!focus ? <DocumentLibrary document = {document} setDocument = {setDocument} focus={focus} setFocus = {setFocus}/> 
-            : 
-            <Tiptap document = {document} content = {document.content} title = {document.title}/>}
-            />
+            <Route exact path="/" element={<DocumentLibrary document = {document} setDocument = {setDocument} focus={focus} setFocus = {setFocus}/>}/>
+            
+            <Route exact path = "/editor" element = {<Tiptap document = {document} content = {document.content} title = {document.title}/>}/>
 
             <Route path="*" element={<div>Page Not Found</div>} />
           </Routes>

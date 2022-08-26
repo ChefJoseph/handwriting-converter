@@ -29,6 +29,7 @@ useEffect(() => {
     const filteredDocs = documents.filter(docs=>       
         docs.title.toLowerCase().includes(search.toLowerCase())||
         docs.content.toLowerCase().includes(search.toLowerCase())
+        // docs.updated_at.toString().includes(search.toString())
         ) 
     
 
@@ -47,7 +48,7 @@ useEffect(() => {
             search= {search} setSearch={setSearch}/>
             <br/>
             <br/>
-            <div className= {focus ? "library2" : "library"}>
+            <div className= {"library"}>
                 {displayed_documents}
             </div>
              
