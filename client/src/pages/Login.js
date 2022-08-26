@@ -10,7 +10,7 @@ function Login({ onLogin }) {
 
   return (
     <Wrapper>
-      <Logo>handwriting➲text</Logo>
+      <Logo>hiNote</Logo>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />

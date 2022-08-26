@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 //This is a thumbnail 
-function DocumentCard({document, id, image_url, setDocument, setFocus, content, title, updated_at, handleRemove}){
+function DocumentCard({document, id, image_url, setDocument,  content, title, updated_at, handleRemove}){
 
     let new_title = title.replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ').trim()
     let new_content = content.replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ').trim()
@@ -15,7 +15,6 @@ function DocumentCard({document, id, image_url, setDocument, setFocus, content, 
     let format_content = new_content.length < 50 ? new_content : new_content.slice(0,50)
 
     function handleClick(){
-        setFocus(true)
         setDocument(document)
         navigate('/editor')
     }

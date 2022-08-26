@@ -31,7 +31,7 @@ development:
   # the same name as the operating system user running Rails.
   username: jwu
 
-  # The password associated with the postgres role (username).
+  # # The password associated with the postgres role (username).
   password: 123
 
   # Connect on a TCP socket. Omitted by default since the client uses a
