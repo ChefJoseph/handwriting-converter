@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
 
-function NavBar({ setFocus, user, setUser }) {
+function NavBar({user, setUser }) {
   
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -13,13 +13,9 @@ function NavBar({ setFocus, user, setUser }) {
     });
   }
 
-  function handleClick(){
-    setFocus(false)
-  }
-
   return (
     <Wrapper className="nav">
-      <Logo onClick = {handleClick}>
+      <Logo>
         <Link to="/">handwriting➲text</Link>
       </Logo>
       <Nav>
