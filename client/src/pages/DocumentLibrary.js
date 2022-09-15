@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import DocumentCard from "../components/DocumentCard";
 
-function DocumentLibrary({documents, setDocuments, search,focus,setDocument, folders}){
-
+function DocumentLibrary({setRefresh, documents, setDocuments, search,focus,setDocument, folders}){
+    
     const [errors, setErrors] = useState([])
 
 
@@ -14,7 +14,7 @@ function DocumentLibrary({documents, setDocuments, search,focus,setDocument, fol
 
     let displayed_documents = filteredDocs.map( (doc) => {
         return <DocumentCard doc = {doc} setDocument = {setDocument} image_url = {doc.image_url}
-        content={doc.content} title={doc.title} folders = {folders} key={doc.id} id = {doc.id} updated_at={doc.updated_at} handleRemove={handleRemove} />
+        content={doc.content} setRefresh = {setRefresh} title={doc.title} folders = {folders} key={doc.id} id = {doc.id} updated_at={doc.updated_at} handleRemove={handleRemove} />
     })
     function handleRemove(doc) {
         

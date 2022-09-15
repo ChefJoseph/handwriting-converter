@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
 
-function NavBar({user, setUser }) {
+function NavBar({setFolder, user, setUser }) {
   
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -13,9 +13,13 @@ function NavBar({user, setUser }) {
     });
   }
 
+  function handleClick(){
+    setFolder(({"name": ""}))
+  }
+
   return (
     <Wrapper className="nav">
-      <Logo>
+      <Logo onClick={handleClick}>
         <Link to="/">&#9776; &nbsp; &nbsp; hiNote</Link>
       </Logo>
       <Nav>

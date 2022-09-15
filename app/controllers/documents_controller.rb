@@ -36,6 +36,7 @@ class DocumentsController < ApplicationController
     
     # DELETE /documents/1
     def destroy
+      @document = Document.find(params[:id])
       @document.destroy
     end
 

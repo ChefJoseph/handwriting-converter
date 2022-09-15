@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import FolderCard from "../components/FolderCard";
 
 
-function FolderLibrary({folder, folders, setFolders, document, setFolderSelect, setFolder}){
+function FolderLibrary({setRefresh, folder, folders, setFolders, document, setFolderSelect, setFolder}){
 
     const [errors, setErrors] = useState([])
 
@@ -23,23 +23,18 @@ function FolderLibrary({folder, folders, setFolders, document, setFolderSelect, 
             }, [])
 
     function handleRemove(fold) {
-
         setFolders(folders.filter(d=> d.id !== fold.id))
-        }
-
-    function handleClick(){
-        setFolderSelect(true)
     }
-        
+
     let displayed_folders = folders.map( (fold) => {
-        return <FolderCard document = {document} folder = {fold} setFolder = {setFolder} 
+        return <FolderCard setRefresh = {setRefresh} document = {document} folder = {fold} setFolder = {setFolder} 
         key={fold.id} id = {fold.id}/>
     })
 
     return(
-        <div>
+        <div className="folder-library">
             {displayed_folders} 
-            <FolderCard/>
+            <FolderCard setFolder = {setFolder} document = {null} folder = {null}/>
         </div>
     )
 }

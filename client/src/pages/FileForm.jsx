@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import { Button, Error, Input, FormField, Label} from "../styles";
 import styled from "styled-components";
 
-function FileForm() {
+function FileForm({folder}) {
     // const {latestDoc, setLatestDoc} = useContext(AppContext)
     const [image, setImage] = useState(null)
     const [title, setTitle] = useState("")
@@ -15,6 +15,7 @@ function FileForm() {
         const formData = new FormData()
         formData.append('title', `<h1> ${title} </h1>`)
         formData.append('content', `<p> ${content} </p>`)
+        formData.append('folder_id', `${folder ? folder.id : null}`)
 
         fetch('/documents', {
             method: 'POST',

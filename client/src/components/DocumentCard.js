@@ -3,13 +3,8 @@ import { useNavigate } from "react-router-dom";
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 
-
-
-
-//This is a thumbnail 
-function DocumentCard({folders, doc, id, image_url, setDocument,  content, title, updated_at, handleRemove}){
+function DocumentCard({setRefresh, folders, doc, id, image_url, setDocument,  content, title, updated_at, handleRemove}){
     
-
     const [menu, setMenu] = useState(false)
 
     let new_title = title.replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ').trim()
@@ -38,7 +33,6 @@ function DocumentCard({folders, doc, id, image_url, setDocument,  content, title
 
       function handleFolderClick(e){
         e.stopPropagation()
-        e.preventDefault()
         fetch(`/documents/${doc.id}`,{
             method: "PATCH",
             headers: {
@@ -48,6 +42,7 @@ function DocumentCard({folders, doc, id, image_url, setDocument,  content, title
               "folder_id": `null`,
             })
           })
+          .then(() => {setRefresh(state => !state)})
       }
 
 

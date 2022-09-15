@@ -17,19 +17,20 @@ class FoldersController < ApplicationController
 
     def create
         @folder = current_user.folders.create!(folder_params)
-        render json: folder, status: :created
+        render json: @folder, status: :created
     end
     
     # PATCH/PUT /documents/1
     def update
-        folder = Folder.find(params[:id])
-        folder.update!(folder_params)
-        render json: folder
+        @folder = Folder.find(params[:id])
+        @folder.update!(folder_params)
+        render json: @folder
     end
 
     
-    # DELETE /documents/1
+    
     def destroy
+        @folder = Folder.find(params[:id])
         @folder.destroy
     end
 

@@ -19,6 +19,9 @@ function App() {
   "title": ""})
   const [documents, setDocuments] = useState([])
   const [folder, setFolder] = useState({"name": ""})
+  const [refresh,setRefresh] = useState(false)
+  console.log(folder.id)
+  
   useEffect(() => {
     // auto-login
     fetch("/auth")
@@ -30,20 +33,35 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+        await fetch("/documents")
+        .then( (results) => {
+            if (results.ok){
+                results.json()
+        .then(docs => 
+            setDocuments(docs))
+        }})}
+    const timer = setTimeout(() => {
+            fetchData();
+          }, 200);
+    return () => clearTimeout(timer)
+    }, [refresh])
+
   if (!user) return <Login onLogin={setUser} />;
 
   console.log(folder)
   return (
       <div>
-      <NavBar user={user} setUser={setUser}/>
+      <NavBar setFolder = {setFolder} user={user} setUser={setUser}/>
         <main>
           <Routes>
-            <Route path="/newdoc" element={<FileForm />}/>
+            <Route path="/newdoc" element={<FileForm folder = {folder}/>}/>
     
-            <Route exact path="/" element={<Display documents = {documents} setDocuments = {setDocuments} folder = {folder} setFolder = {setFolder} document = {document} setDocument = {setDocument} focus={focus} setFocus = {setFocus}/>}/>
+            <Route exact path="/" element={<Display setRefresh = {setRefresh} documents = {documents} setDocuments = {setDocuments} folder = {folder} setFolder = {setFolder} document = {document} setDocument = {setDocument} focus={focus} setFocus = {setFocus}/>}/>
             
             <Route exact path = "/editor" element = {<Tiptap document = {document} content = {document.content} title = {document.title}/>}/>
-            <Route exact path = "/directory" element = {<FolderDirectory setDocument = {setDocument} setDocuments = {setDocuments} folder ={folder}/>}/>
+            <Route exact path = "/directory" element = {<FolderDirectory setRefresh = {setRefresh} setDocument = {setDocument} documents = {documents} setDocuments = {setDocuments} folder ={folder}/>}/>
             <Route path="*" element={<div>Page Not Found</div>} />
           </Routes>
         </main>

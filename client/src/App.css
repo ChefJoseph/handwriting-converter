@@ -20,7 +20,7 @@
   z-index: 900;
 }
 .library{
-  width:100%;
+  width:80%;
   margin:auto;
   display: flex;
   flex-direction: row;
@@ -29,17 +29,47 @@
   z-index: 950
 }
 
-[contenteditable]{
-  outline: 0px solid transparent;
-  max-height: 200px;
-  overflow: auto;
-}
-
 .library2{
   width:100%;
   margin:auto;
   text-align: center;
   align-content: center;
+}
+
+
+.folder-library{
+  width:80%;
+  margin:auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  z-index: 950
+}
+
+.folder{
+  height: 50px;
+  width: 200px;
+  border: 1px solid rgb(203, 203, 201);
+  text-align: center;
+  background-color: white;
+  position: relative;
+  border-radius: 3px;
+  line-height: 50px;
+}
+
+.display{
+  width: 90%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+[contenteditable]{
+  outline: 0px solid transparent;
+  max-height: 200px;
+  overflow: auto;
 }
 
 .card{
@@ -55,20 +85,6 @@
   background-color: white;
   position: relative;
   border-radius: 3px;
-  left: 140px;
-}
-
-.folder{
-  height: 50px;
-  width: 200px;
-  margin: 1%;
-  border: 1px solid rgb(203, 203, 201);
-  text-align: center;
-  background-color: white;
-  position: relative;
-  border-radius: 3px;
-  line-height: 50px;
-  left: 140px;
 }
 
 .folder:hover{
