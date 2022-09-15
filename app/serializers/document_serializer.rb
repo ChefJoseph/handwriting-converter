@@ -1,6 +1,6 @@
 class DocumentSerializer< ActiveModel::Serializer
 
-  attributes :id, :content, :title, :user_id, :image_url
+  attributes :id, :content, :title, :user_id, :image_url, :folder_id
   has_many :tags
 
   def image_url

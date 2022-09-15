@@ -12,15 +12,9 @@ function FileForm() {
     const navigate = useNavigate();
     
     const handleSubmit = (e) => {
-      // e.preventDefault()
-      
-      
         const formData = new FormData()
-        // formData.append("document[title]", e.target.title.value);
-        // formData.append("document[image]", e.target.image.files[0]);
-        formData.append('image', image)
-        formData.append('title', title)
-        formData.append('content', content)
+        formData.append('title', `<h1> ${title} </h1>`)
+        formData.append('content', `<p> ${content} </p>`)
 
         fetch('/documents', {
             method: 'POST',
@@ -43,18 +37,6 @@ function FileForm() {
         const handleChangeImage = e => setImage(e.target.files[0])
         const handleChangeTitle = e => setTitle(e.target.value)
         const handleChangeContent = e => setContent(e.target.value)
-    // function submitToAPI(data) {
-    //     fetch("http://localhost:3000/documents", {
-    //         method: "POST",
-    //         body: data
-    //     })
-    //         .then(r => r.json())
-    //         .then(data => {
-    //             setLatestDoc(data.image_url)
-    //         })
-    //         .catch((error) => console.error(error))
-    // }
-
 
     return(
       <Wrapper>

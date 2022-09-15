@@ -5,6 +5,7 @@ class CreateDocuments < ActiveRecord::Migration[7.0]
       t.string :content
       t.integer :user_id
       t.integer :tag_id
+      t.integer :folder_id
       t.timestamps
     end
   end

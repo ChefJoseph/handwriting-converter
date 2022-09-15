@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
-import DocumentLibrary from "../pages/DocumentLibrary"
+import Display from "./Display";
 import "../App.css"
 import FileForm from "../pages/FileForm"; 
 import Tiptap from "../components/Tiptap.jsx";
+import FolderDirectory from "./FolderDirectory";
 // import LatestDoc from "./LatestDoc";
 
 
@@ -16,8 +17,8 @@ function App() {
   const [focus, setFocus] = useState(false)
   const [document, setDocument] = useState({"content": "",
   "title": ""})
-  // const [avatar, setAvatar] = useState(null)
-  
+  const [documents, setDocuments] = useState([])
+  const [folder, setFolder] = useState({"name": ""})
   useEffect(() => {
     // auto-login
     fetch("/auth")
@@ -31,7 +32,7 @@ function App() {
 
   if (!user) return <Login onLogin={setUser} />;
 
-
+  console.log(folder)
   return (
       <div>
       <NavBar user={user} setUser={setUser}/>
@@ -39,10 +40,10 @@ function App() {
           <Routes>
             <Route path="/newdoc" element={<FileForm />}/>
     
-            <Route exact path="/" element={<DocumentLibrary document = {document} setDocument = {setDocument} focus={focus} setFocus = {setFocus}/>}/>
+            <Route exact path="/" element={<Display documents = {documents} setDocuments = {setDocuments} folder = {folder} setFolder = {setFolder} document = {document} setDocument = {setDocument} focus={focus} setFocus = {setFocus}/>}/>
             
             <Route exact path = "/editor" element = {<Tiptap document = {document} content = {document.content} title = {document.title}/>}/>
-
+            <Route exact path = "/directory" element = {<FolderDirectory setDocument = {setDocument} setDocuments = {setDocuments} folder ={folder}/>}/>
             <Route path="*" element={<div>Page Not Found</div>} />
           </Routes>
         </main>

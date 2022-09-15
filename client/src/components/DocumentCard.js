@@ -1,21 +1,25 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import MaterialIcon, {colorPalette} from 'material-icons-react';
+
+
+
 
 
 //This is a thumbnail 
-function DocumentCard({document, id, image_url, setDocument,  content, title, updated_at, handleRemove}){
+function DocumentCard({folders, doc, id, image_url, setDocument,  content, title, updated_at, handleRemove}){
+    
+
+    const [menu, setMenu] = useState(false)
 
     let new_title = title.replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ').trim()
     let new_content = content.replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ').trim()
-
-    console.log(new_content)
-
 
     const navigate = useNavigate()
     let format_content = new_content.length < 50 ? new_content : new_content.slice(0,50)
 
     function handleClick(){
-        setDocument(document)
+        setDocument(doc)
         navigate('/editor')
     }
 
@@ -27,10 +31,29 @@ function DocumentCard({document, id, image_url, setDocument,  content, title, up
         .then(console.log("deleted"))
       }
 
+      function handleDragStart(e){
+        e.dataTransfer.setData("Text", e.target.id);
+        setDocument(doc)
+      }
+
+      function handleFolderClick(e){
+        e.stopPropagation()
+        e.preventDefault()
+        fetch(`/documents/${doc.id}`,{
+            method: "PATCH",
+            headers: {
+             "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              "folder_id": `null`,
+            })
+          })
+      }
 
 
     return(
-        <div className="card" onClick = {handleClick}>
+        
+        <div className="card" onClick = {handleClick} draggable = {true} onDragStart = {handleDragStart}>
             <h1>{new_title}</h1>
             <p>{format_content}</p> 
             <p>{updated_at}</p>
@@ -39,11 +62,16 @@ function DocumentCard({document, id, image_url, setDocument,  content, title, up
             onClick={(e) => {
                 e.stopPropagation()
                 e.preventDefault()
-                handleRemove(document)
-                handleDelete(id)}}
+                setMenu(true)
+                handleRemove(doc)
+                handleDelete(id)
+            }}
             >
-                &#8285;
+                <MaterialIcon icon="delete" />
             </button>
+            {doc.folder_id ? <button className= "card-tridecimal2" onClick={(e) => handleFolderClick(e)}>
+                <MaterialIcon icon="folder" />
+            </button> : null}
         </div>
     )
 }

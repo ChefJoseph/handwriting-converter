@@ -18,11 +18,15 @@
         {name: 'Misc'}
     ])
 
-    Document.create([{ title: 'Math notes', content: '1 + 1 = 2', user_id: 1}])
+    Folder.create(
+        {name: 'Work', user_id: 1}
+    )
+
+    Document.create([{ title: 'Math notes', content: '1 + 1 = 2', user_id: 1, folder_id: 1}])
     Document.create([{ title: 'English notes', content: 'The caterpillar was hungry', user_id: 2}])
     Document.create([{ title: 'History notes', content: 'Christopher Columbus', user_id: 1}])
     Document.create([{ title: 'Sexy Notes', content: '69', user_id: 2}])
-    Document.create([{ title: 'Secret Notes', content: 'Psssss', user_id: 1}])
+    Document.create([{ title: 'Secret Notes', content: 'Psssss', user_id: 1, folder_id: 1}])
     Document.create([{ title: 'Political Notes', content: 'MAGA', user_id: 2}])
     Document.create([{ title: 'Gossip Notes', content: 'OMG OMG OMG', user_id: 1}])
     Document.create([{ title: 'Foreign Notes', content: 'HOLA COMO ESTAS', user_id: 2}])
@@ -36,8 +40,5 @@
     Tagging.create!(document_id: 2, tag_id: 6)
     Tagging.create!(document_id: 3, tag_id: 6)
     Tagging.create!(document_id: 3, tag_id: 8)
-
-        
-    
 
     puts "seeded!"

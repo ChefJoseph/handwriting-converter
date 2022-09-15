@@ -20,6 +20,7 @@ class DocumentsController < ApplicationController
 
     # POST /documents
     def create
+      
       # byebug
       @document = current_user.documents.create!(document_params)
       render json: @document, status: :created
@@ -49,7 +50,7 @@ class DocumentsController < ApplicationController
       end
       # Only allow a list of trusted parameters through.
       def document_params
-        params.permit(:title, :content, :tag_id, :user_id)
+        params.permit(:title, :content, :tag_id, :user_id, :folder_id)
       end
   end
   
